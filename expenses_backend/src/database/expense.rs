@@ -1,4 +1,4 @@
-use rust_decimal::prelude::{FromPrimitive, ToPrimitive};
+use rust_decimal::prelude::ToPrimitive;
 use sqlx::Row;
 
 use super::filter;

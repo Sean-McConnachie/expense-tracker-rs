@@ -1,4 +1,4 @@
-use crate::{database, utils::config};
+use crate::utils::config;
 use anyhow::Result;
 
 use clap::{Parser, Subcommand};
@@ -84,7 +84,7 @@ enum Web {
     Start,
 }
 
-pub async fn run(config: config::Config, db_pool: &sqlx::PgPool) -> Result<()> {
+pub async fn run(_config: config::Config, _db_pool: &sqlx::PgPool) -> Result<()> {
     let entry_point = EntryPoint::parse();
 
     match &entry_point.command {
@@ -160,6 +160,4 @@ pub async fn run(config: config::Config, db_pool: &sqlx::PgPool) -> Result<()> {
             }
         },
     }
-
-    Ok(())
 }
