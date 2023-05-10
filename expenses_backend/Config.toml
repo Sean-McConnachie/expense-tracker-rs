@@ -1,0 +1,5 @@
+log_level = "trace"
+
+[db_config]
+database_url = "postgres://postgres:12341234@localhost/expense_tracker"
+max_connections = 10

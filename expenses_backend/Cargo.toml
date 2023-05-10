@@ -1,0 +1,27 @@
+[package]
+name = "expenses_backend"
+version = "0.1.0"
+edition = "2021"
+authors = ["Sean McConnachie <seanjulian.mcc@gmail.com>"]
+
+[dependencies]
+
+sqlx = { version = "0.6.3", features = [
+    "postgres",
+    "runtime-tokio-native-tls",
+    "chrono",
+    "decimal",
+] }
+serde = { version = "1.0.162", features = ["derive"] }
+tokio = { version = "1.27.0", features = ["full"] }
+toml = "0.7.3"
+anyhow = "1.0"
+chrono = { version = "0.4.24", features = ["serde"] }
+clap = { version = "4.1.13", features = ["derive"] }
+# rocket = { version = "0.4.11" }
+rust_decimal = "1.29.1"
+
+# Logging
+log = "0.4.5"
+colored = "2.0.0"
+fern = "0.6.1"
