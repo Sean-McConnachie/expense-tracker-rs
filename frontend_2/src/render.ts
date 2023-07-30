@@ -1,10 +1,10 @@
 import * as _ from "lodash";
-//var HandleBars = require('handlebars');
 import * as Handlebars from "handlebars";
 
-import { Category, Expense, ExpenseData, User, UserData, UserOwes } from './datatypes'
+import { Category, Expense, ExpenseData, User, UserData } from './datatypes'
 import { API_URL, DATA } from "./vars";
 import { http } from "./utils";
+import { calculateExpenses } from "./calculations";
 
 type success = boolean;
 
@@ -254,7 +254,7 @@ function submitExpense(_: Event) {
 
 	{
 		const description_elem = document.getElementById("description") as HTMLTextAreaElement;
-		expense.description = description_elem.innerText;
+		expense.description = description_elem.value;
 	}
 
 	{
@@ -283,6 +283,7 @@ function submitExpense(_: Event) {
 				const amount = parseFloat(amount_inp.value);
 
 				user = DATA.users.users[parseInt(amount_inp.getAttribute("uid"))];
+
 				if (amount < 0) {
 					displayError("Amount for `" + user.username + "` is less than $0!");
 					return;
@@ -354,77 +355,9 @@ function formatExpenseDates(expense: Expense) {
 }
 
 // ===
-interface OwingMap {
-	[key: number]: number
-}
-
-interface UserMap {
-	[key: number]: OwingMap;
-}
-
-interface ExpenseSummary {
-	total: number;
-	categories: string[];
-	user_map: UserMap;
-}
-
-function calculateExpenses(): UserMap {
-	const expense_summary: ExpenseSummary = {
-		total: 0,
-		categories: [],
-		user_map: null // Add at the end
-	}
-	const user_map: UserMap = {};
-
-	{
-		// Initialize map
-		const len = DATA.users.users.length;
-		var curr, other;
-		for (let i = 0; i < len; i++) {
-			curr = DATA.users.users[i];
-			user_map[curr.id] = {};
-
-			for (let j = 0; j < len; j++) {
-				other = DATA.users.users[j];
-				if (curr.id == other.id) { continue; }
-
-				user_map[curr.id][other.id] = 0;
-			}
-		}
-	}
-
-	{
-		// Populate map based on checkbox elements
-		const checkbox_elems = document.getElementsByClassName("expense-checkbox");
-		console.assert(checkbox_elems.length == DATA.expenses.expenses.length);
-
-		var cb;
-		var expense;
-
-		for (let i = 0; i < checkbox_elems.length; i++) {
-			cb = checkbox_elems[i] as HTMLInputElement;
-			if (cb.checked === true) {
-				expense = DATA.expenses.expenses[i];
-
-				expense_summary.total += expense.amount;
-
-				var owe;
-				for (let u = 0; u < expense.user_owes.length; u++) {
-					owe = expense.user_owes[u];
-					user_map[expense.user_id]
-				}
-			}
-		}
-	}
-
-	return user_map;
-}
-
 
 export function updateExpenseSummary() {
-
-
-
+	const expense_summary = calculateExpenses();
 	populateTemplate("expense-summary-template", "expense-summary-target", expense_summary);
 }
 

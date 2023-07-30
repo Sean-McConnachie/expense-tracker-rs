@@ -199,17 +199,11 @@
 						<div class="expenses-total">${{rnd2DP total}}</div>
             		</div>
             		<div class="expenses-summary">
-						<table class="expenses-owes-table">
-                    	    <thead>
-                    	        <tr>
-                    	            <th>{"Name"}</th>
-                    	            <th>{"Owes ($)"}</th>
-                    	        </tr>
-                    	    </thead>
-                    	    <tbody>
-                    	        {sub_owing}
-                    	    </tbody>
-                    	</table>
+						{{#user_map}}
+						<div>
+						<b>{{user_who_pays}}</b> owes <i>{{user_who_receives}}</i> <b>${{amount}}</b>
+						</div>
+						{{/user_map}}
 					</div>
             		<div class="expenses-summary">
             		    <h2>Categories</h2>

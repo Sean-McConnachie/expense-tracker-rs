@@ -139,7 +139,7 @@ export class Data {
 		this.expenses = new ExpenseData();
 	}
 
-	async init() {
+	public async init() {
 		await this.users.fetchAllUsers();
 		await this.categories.fetchAllCategories();
 		await this.expenses.fetchAllExpenses();
