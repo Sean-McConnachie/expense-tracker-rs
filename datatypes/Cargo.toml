@@ -1,0 +1,12 @@
+[package]
+name = "datatypes"
+version = "0.1.0"
+edition = "2021"
+authors = ["Sean McConnachie <seanjulian.mcc@gmail.com>"]
+
+[dependencies]
+serde_json = "1.0"
+serde = {version = "1.0", features = ["derive"]}
+sqlx = "0.6.1"
+chrono = "0.4.26"
+rust_decimal = "1.29.1"

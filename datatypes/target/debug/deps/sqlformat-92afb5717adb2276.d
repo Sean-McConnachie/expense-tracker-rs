@@ -1,0 +1,12 @@
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/sqlformat-92afb5717adb2276.rmeta: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/formatter.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/indentation.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/inline_block.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/params.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/tokenizer.rs
+
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/libsqlformat-92afb5717adb2276.rlib: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/formatter.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/indentation.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/inline_block.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/params.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/tokenizer.rs
+
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/sqlformat-92afb5717adb2276.d: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/formatter.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/indentation.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/inline_block.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/params.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/tokenizer.rs
+
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/lib.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/formatter.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/indentation.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/inline_block.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/params.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/sqlformat-0.2.1/src/tokenizer.rs:

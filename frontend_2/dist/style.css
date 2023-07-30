@@ -1,0 +1,624 @@
+/*[> Style the button to look like a dropdown button <]*/
+/*.dropbtn {*/
+  /*background-color: #4CAF50;*/
+  /*color: white;*/
+  /*padding: 12px;*/
+  /*font-size: 16px;*/
+  /*border: none;*/
+  /*cursor: pointer;*/
+/*}*/
+
+/*[> Style the dropdown content (hidden by default) <]*/
+/*.dropdown-content {*/
+  /*display: none;*/
+  /*position: absolute;*/
+  /*background-color: #f9f9f9;*/
+  /*min-width: 160px;*/
+  /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+/*}*/
+
+/*[> Style the links inside the dropdown <]*/
+/*.dropdown-content a {*/
+  /*color: black;*/
+  /*padding: 12px 16px;*/
+  /*text-decoration: none;*/
+  /*display: block;*/
+/*}*/
+
+/*[> Change the link color on hover <]*/
+/*.dropdown-content a:hover {*/
+  /*background-color: #f1f1f1;*/
+/*}*/
+
+/*[> Show the dropdown menu on hover <]*/
+/*.dropdown:hover .dropdown-content {*/
+  /*display: block;*/
+/*}*/
+
+
+/* ======================================================================================================= */
+
+.expense-details {
+    display: block;
+    background-color: #f8f8f8;
+    padding: 10px;
+}
+
+.expense-details .expense-description {
+    margin-bottom: 10px;
+}
+
+.expense-users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.expense-users-table th,
+.expense-users-table td {
+    padding: 5px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.expense-users-table th {
+    background-color: #f2f2f2;
+    font-weight: normal;
+}
+
+.expense-users-table tr:last-child td {
+    border-bottom: none;
+}
+
+
+.expenses-right {
+    flex-basis: 28%;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+}
+
+.expenses-summary {
+    margin-bottom: 20px;
+}
+
+.expenses-summary h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.expenses-total {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.expenses-owes-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.expenses-owes-table th,
+.expenses-owes-table td {
+    padding: 5px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.expenses-owes-table th {
+    background-color: #f2f2f2;
+    font-weight: normal;
+}
+
+.expenses-owes-table tr:last-child td {
+    border-bottom: none;
+}
+
+.expenses-categories {
+    list-style: none;
+    padding-left: 0;
+}
+
+.expenses-categories li {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.show-details {
+    display: block;
+}
+
+table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+    
+    input[type="number"] {
+      width: 80px;
+    }
+    
+    .sum-row {
+      font-weight: bold;
+    }
+
+.hidden {
+	display: none !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    /* background-color: #f0f0f0; */
+}
+
+.header-left {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    margin: 20px;
+    align-items: center;
+}
+
+.vertical-column {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header-center {
+    text-align: center;
+    flex: 1;
+    margin: 10px;
+}
+
+
+.btn {
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    width: 32px;
+    height: 32px;
+    margin: 10px;
+}
+
+.btn:hover {
+    transform: scale(1.2);
+}
+
+.add-expense-btn {
+    background: url(public/add.svg);
+}
+
+
+/*.filter-btn {*/
+/*    background: url(public/filter.svg);*/
+/*}*/
+
+.user-dropdown {
+    background-color: #f0f0f0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    margin-top: 8px;
+    margin-left: 20px;
+    padding: 10px;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+
+    color: #333;
+    outline: none;
+    align-self: flex-start;
+
+}
+
+.user-dropdown::-ms-expand {
+    display: none;
+}
+
+.user-dropdown option {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.user-dropdown option {
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.user-dropdown option:hover {
+    background-color: #f0f0f0;
+}
+
+.user-dropdown:focus {
+    outline: none;
+    box-shadow: 0 0 5px #000;
+}
+
+.user-dropdown:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+.header-right {
+    position: relative;
+}
+
+.settings-btn {
+    background: url(public/cog.svg);
+}
+
+.settings-menu {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    z-index: 1;
+    display: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.settings-menu ul {
+    list-style: none;
+}
+
+.settings-menu li {
+    transition: all 0.2s ease-in-out;
+    /* margin-bottom: 10px; */
+}
+
+.settings-menu li:hover {
+    transform: scale(1.1);
+
+}
+
+.settings-menu a {
+    display: block;
+    padding: 5px;
+    color: #000;
+    text-decoration: none;
+}
+
+.header-right:hover .settings-menu {
+    display: block;
+}
+
+
+/* .theme-switch-btn {
+    color: #fff !important;
+    background-color: #333;
+    border-radius: 5px;
+    padding: 5px;
+} */
+
+/* ======================================================================================================= */
+
+main {
+    padding: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.expenses-section {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.expenses-left {
+    flex-basis: 70%;
+}
+
+.expenses-left h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.expenses-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.expense-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.expense-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+/* ======================================================================================================= */
+.expense-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 32px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.expense-row:hover {
+    background-color: #f8f8f8;
+}
+
+.expense-checkbox {
+    position: absolute;
+    display: inline-block;
+    margin-top: 11px;
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #bbb;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.expense-checkbox:checked::before {
+    content: "\2713";
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    color: #fff;
+    font-size: 12px;
+}
+
+.expense-checkbox:focus {
+    outline: none;
+}
+
+.expense-checkbox:hover {
+    border-color: #999;
+}
+
+.expense-checkbox:checked:after {
+    border-color: #FF0000;
+}
+
+.expense-amount {
+    /*margin-left: 30px;*/
+    flex-basis: 20%;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.expense-user {
+    flex-basis: 20%;
+}
+
+.expense-date {
+    flex-basis: 20%;
+    font-weight: lighter;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.expense-category {
+    flex-basis: 30%;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.expense-communal {
+    flex-basis: 10%;
+    padding-left: 12px;
+    padding-right: 6px;
+    font-weight: bold;
+}
+
+.expense-users {
+    /*flex-basis: %;*/
+}
+
+/* ======================================================================================================= */
+
+
+
+/* Popup ================================================================================================= */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    position: relative;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.popup-error {
+	padding-left: 20px;
+	color: #800000 !important;
+}
+
+.popup-header {
+    padding: 20px;
+}
+
+.popup-flex-div {
+    display: flex;
+}
+
+.popup-flex-div > * {
+    padding: 20px;
+}
+
+.popup-show {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    animation: fadeIn 0.5s;
+
+}
+
+.popup-show h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.popup-show p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.popup-show label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.popup-show input[type="text"],
+.popup-show select,
+.popup-show textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+.popup-show input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.popup-show table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.popup-show th,
+.popup-show td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.popup-show th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.popup-show tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+label[for="communal"],
+#communal {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.popup-footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    /*padding: 10px 20px;*/
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* ======================================================================================================= */
+

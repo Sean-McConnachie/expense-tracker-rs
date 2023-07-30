@@ -1,0 +1,13 @@
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/url-34f24ec38317704b.rmeta: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/host.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/origin.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/parser.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/path_segments.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/slicing.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/quirks.rs
+
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/liburl-34f24ec38317704b.rlib: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/host.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/origin.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/parser.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/path_segments.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/slicing.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/quirks.rs
+
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/url-34f24ec38317704b.d: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/host.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/origin.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/parser.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/path_segments.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/slicing.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/quirks.rs
+
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/lib.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/host.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/origin.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/parser.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/path_segments.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/slicing.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/url-2.4.0/src/quirks.rs:

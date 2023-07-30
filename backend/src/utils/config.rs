@@ -11,6 +11,15 @@ pub struct Config {
     #[serde(deserialize_with = "parse_log_filter")]
     log_level: log::LevelFilter,
     db_config: database::DbConfig,
+
+    #[serde(rename = "category")]
+    categories: Vec<CategoryConfig>,
+}
+
+#[derive(Deserialize, Debug, Clone)]
+pub struct CategoryConfig {
+    pub name: String,
+    pub description: String,
 }
 
 impl Config {
@@ -21,10 +30,15 @@ impl Config {
     pub fn db_config(&self) -> &database::DbConfig {
         &self.db_config
     }
+
+
+    pub fn categories(&self) -> &Vec<CategoryConfig> {
+        &self.categories
+    }
 }
 
 pub fn read_config<P: AsRef<path::Path>, T: for<'de> Deserialize<'de>>(
-    path: P,
+    path: P
 ) -> Result<T, String> {
     let mut file = fs::File::open(path).map_err(|e| e.to_string())?;
     let mut contents = String::new();

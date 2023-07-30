@@ -2,13 +2,14 @@ use rocket::serde::json::Json;
 use rocket::{delete, get, post, State};
 
 use crate::database::category;
+use datatypes::Category;
 
 #[post("/create", format = "json", data = "<name_description>")]
 pub async fn categories_create(
     db_pool: &State<sqlx::PgPool>,
     name_description: Json<(String, String)>,
-) -> Result<Json<category::Category>, std::io::Error> {
-    let category = category::insert_category(db_pool, name_description.0 .0, name_description.0 .1)
+) -> Result<Json<Category>, std::io::Error> {
+    let category = category::insert_category(db_pool, name_description.0 .0, &name_description.0 .1)
         .await
         .map_err(|_e| {
             std::io::Error::new(std::io::ErrorKind::Other, "Failed to create category")
@@ -20,7 +21,7 @@ pub async fn categories_create(
 #[get("/all")]
 pub async fn categories_all(
     db_pool: &State<sqlx::PgPool>,
-) -> Result<Json<Vec<category::Category>>, std::io::Error> {
+) -> Result<Json<Vec<Category>>, std::io::Error> {
     let categories = category::get_categories(db_pool)
         .await
         .map_err(|_e| std::io::Error::new(std::io::ErrorKind::Other, "Failed to get categories"))?;

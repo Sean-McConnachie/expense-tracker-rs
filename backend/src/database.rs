@@ -1,6 +1,5 @@
 pub mod category;
 pub mod expense;
-pub mod filter;
 pub mod initialize;
 pub mod user;
 

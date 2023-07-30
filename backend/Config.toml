@@ -3,3 +3,15 @@ log_level = "trace"
 [db_config]
 database_url = "postgres://postgres:12341234@localhost/expense_tracker"
 max_connections = 10
+
+[[category]]
+name = "food"
+description = "food expenses"
+
+[[category]]
+name = "fuel"
+description = "fuel expenses"
+
+[[category]]
+name = "shopping"
+description = "shopping expenses"

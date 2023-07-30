@@ -1,0 +1,12 @@
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/libthiserror_impl-c09a745b012613c1.so: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/ast.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/attr.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/expand.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/fmt.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/generics.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/prop.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/valid.rs
+
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/thiserror_impl-c09a745b012613c1.d: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/ast.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/attr.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/expand.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/fmt.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/generics.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/prop.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/valid.rs
+
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/lib.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/ast.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/attr.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/expand.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/fmt.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/generics.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/prop.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.40/src/valid.rs:

@@ -1,0 +1,12 @@
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/getrandom-c084194b9144f4f9.rmeta: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/error.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/util.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/util_libc.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/use_file.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/linux_android.rs
+
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/libgetrandom-c084194b9144f4f9.rlib: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/error.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/util.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/util_libc.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/use_file.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/linux_android.rs
+
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/getrandom-c084194b9144f4f9.d: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/error.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/util.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/util_libc.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/use_file.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/linux_android.rs
+
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/lib.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/error.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/util.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/util_libc.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/use_file.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/getrandom-0.2.10/src/linux_android.rs:

@@ -7,6 +7,7 @@ use endpoints::*;
 use crate::utils::config;
 use cors::*;
 use rocket::routes;
+
 pub async fn run(config: config::Config, db_pool: sqlx::PgPool) {
     rocket::build()
         .mount(

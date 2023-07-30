@@ -1,0 +1,13 @@
+Endpoints:
+
+POST    /categories/create  Json<(String, String)>
+GET     /categories/all
+DELETE  /categories         Json<i32>
+
+POST    /expenses/create    Json<Expense>
+GET     /expenses/all
+POST    /expenses/filter    Json<Filter>
+
+POST    /users/create       Json<String>
+GET     /users/all
+DELETE  /users/delete       Json<i32>

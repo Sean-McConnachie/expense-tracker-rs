@@ -1,0 +1,14 @@
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/crc-6ea49663693c71b3.rmeta: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc128.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc16.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc32.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc64.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc8.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/table.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/util.rs
+
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/libcrc-6ea49663693c71b3.rlib: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc128.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc16.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc32.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc64.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc8.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/table.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/util.rs
+
+/home/cunt/dev/_ongoing/expense-tracker-rs/datatypes/target/debug/deps/crc-6ea49663693c71b3.d: /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/lib.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc128.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc16.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc32.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc64.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc8.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/table.rs /home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/util.rs
+
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/lib.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc128.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc16.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc32.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc64.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/crc8.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/table.rs:
+/home/cunt/.cargo/registry/src/github.com-1ecc6299db9ec823/crc-3.0.1/src/util.rs:

@@ -26,7 +26,6 @@ pub async fn initialize_db(db_pool: &sqlx::PgPool) -> Result<(), sqlx::Error> {
 
         amount NUMERIC(10, 3) NOT NULL,
         description VARCHAR(255) NOT NULL,
-        is_communal BOOLEAN NOT NULL,
 
         created_at TIMESTAMP NOT NULL DEFAULT NOW(),
         purchased_at DATE NOT NULL
