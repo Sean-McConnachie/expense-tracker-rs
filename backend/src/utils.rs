@@ -3,8 +3,9 @@ use crate::database;
 pub mod args;
 pub mod config;
 pub mod logger;
+pub mod import;
 
-pub async fn startup(config: &config::Config, db_pool: &sqlx::PgPool) -> anyhow::Result<()> {
+pub async fn startup(_config: &config::Config, db_pool: &sqlx::PgPool) -> anyhow::Result<()> {
     database::initialize::initialize_db(&db_pool)
         .await
         .expect("Failed to initialize database.");

@@ -2,6 +2,7 @@
 pub enum OrderBy {
     Amount,
     Date,
+    Created,
 }
 
 #[derive(serde::Serialize, serde::Deserialize, Debug, Clone, PartialEq)]

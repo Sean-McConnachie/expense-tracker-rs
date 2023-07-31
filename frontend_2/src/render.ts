@@ -1,9 +1,9 @@
 import * as _ from "lodash";
 import * as Handlebars from "handlebars";
 
-import { Category, Expense, ExpenseData, User, UserData } from './datatypes'
+import { Category, CategoryData, Expense, ExpenseData, Filter, OrderBy, User, UserData } from './datatypes'
 import { API_URL, DATA } from "./vars";
-import { http } from "./utils";
+import { castNestedFieldToDate, getInpCheck, getInpVal, getSelectVal, http } from "./utils";
 import { calculateExpenses } from "./calculations";
 
 type success = boolean;
@@ -311,12 +311,12 @@ function submitExpense(_: Event) {
 	// ===
 	{
 		Date.prototype.toJSON = function(): string {
-			const year = this.getUTCFullYear();
-			const month = String(this.getUTCMonth() + 1).padStart(2, '0');
-			const day = String(this.getUTCDate()).padStart(2, '0');
-			const hours = String(this.getUTCHours()).padStart(2, '0');
-			const minutes = String(this.getUTCMinutes()).padStart(2, '0');
-			const seconds = String(this.getUTCSeconds()).padStart(2, '0');
+			const year = this.getFullYear();
+			const month = String(this.getMonth() + 1).padStart(2, '0');
+			const day = String(this.getDate()).padStart(2, '0');
+			const hours = String(this.getHours()).padStart(2, '0');
+			const minutes = String(this.getMinutes()).padStart(2, '0');
+			const seconds = String(this.getSeconds()).padStart(2, '0');
 
 			const formattedDate = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 
@@ -345,6 +345,8 @@ function submitExpense(_: Event) {
 
 	const overlay_elem = document.getElementById("add-expense-target");
 	overlay_elem.innerHTML = ``;
+
+	applyFilterDropdown();
 }
 
 function formatExpenseDates(expense: Expense) {
@@ -364,3 +366,99 @@ export function updateExpenseSummary() {
 Handlebars.registerHelper('rnd2DP', function(distance) {
 	return distance.toFixed(2);
 });
+
+// ===
+export function populateFilterDropdown() {
+	interface FilterData {
+		users: User[],
+		categories: Category[]
+		todays_date: string
+	};
+
+	const filter_data: FilterData = {
+		users: DATA.users.users,
+		categories: DATA.categories.categories,
+		todays_date: new Date().toISOString().slice(0, 10),
+	};
+
+	populateTemplate("filter-template", "filter-target", filter_data);
+
+	const clear_btn = document.getElementById("filter-clear");
+	const apply_btn = document.getElementById("filter-apply");
+
+	clear_btn.addEventListener("click", populateFilterDropdown)
+	apply_btn.addEventListener("click", applyFilterDropdown)
+}
+
+//function filterErr(message: string) {
+//const filter_err = document.getElementById("filter-err");
+//filter_err.innerHTML = message;
+//}
+
+export async function applyFilterDropdown() {
+	const form = {
+		from_date: getInpVal("filter-from-date"),
+		to_date: getInpVal("filter-to-date"),
+		purchased_by: getSelectVal("filter-purchased-by"),
+		category: getSelectVal("filter-category"),
+		min_amount: getInpVal("filter-min-amount"),
+		max_amount: getInpVal("filter-max-amount"),
+		order_date: getInpCheck("filter-order-date"),
+		order_amount: getInpCheck("filter-order-amount"),
+		order_created: getInpCheck("filter-order-created"),
+		order_asc: getInpCheck("filter-order-asc"),
+		order_desc: getInpCheck("filter-order-desc"),
+	};
+
+	console.assert(form.order_asc == !form.order_desc);
+
+	const filter: Filter = {
+		user_ids: [],
+		category_ids: [],
+		min_amount: parseFloat(form.min_amount),
+		max_amount: parseFloat(form.max_amount),
+		min_date: new Date(form.from_date).toISOString().slice(0, 10),
+		max_date: new Date(form.to_date).toISOString().slice(0, 10),
+		order_by: "",
+		order_asc: form.order_asc
+	}
+
+	if (form.purchased_by == "") {
+		for (let i = 0; i < DATA.users.users.length; i++) {
+			filter.user_ids.push(DATA.users.users[i].id);
+		}
+	} else {
+		filter.user_ids.push(DATA.users.users[parseInt(form.purchased_by)].id);
+	}
+
+	if (form.category == "") {
+		for (let i = 0; i < DATA.categories.categories.length; i++) {
+			filter.category_ids.push(DATA.categories.categories[i].id);
+		}
+	} else {
+		filter.category_ids.push(DATA.categories.categories[parseInt(form.category)].id);
+	}
+
+	if (form.order_date && !form.order_amount && !form.order_created) {
+		filter.order_by = "Date";
+	} else if (!form.order_date && form.order_amount && !form.order_created) {
+		filter.order_by = "Amount";
+	} else if (!form.order_date && !form.order_amount && form.order_created) {
+		filter.order_by = "Created";
+	} else {
+		console.error("Problem with the above statement!");
+		return;
+	}
+
+
+	DATA.expenses.expenses = await http<Expense[]>(
+		API_URL + "expenses/filter",
+		{
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(filter)
+		}
+	);
+	castNestedFieldToDate(DATA.expenses.expenses, ["user_owes"], ["created_at", "purchased_at"], ["created_at"])
+	populateExpenses(DATA.expenses);
+}

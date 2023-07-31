@@ -28,3 +28,18 @@ export function castNestedFieldToDate<T, G>(
 		}
 	}
 }
+
+export function getInpVal(id: string): string {
+	const elem = document.getElementById(id) as HTMLInputElement;
+	return elem.value;
+}
+
+export function getInpCheck(id: string): boolean {
+	const elem = document.getElementById(id) as HTMLInputElement;
+	return elem.checked;
+}
+
+export function getSelectVal(id: string): string {
+	const elem = document.getElementById(id) as HTMLSelectElement;
+	return elem.value;
+}

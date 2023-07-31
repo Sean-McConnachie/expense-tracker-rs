@@ -26,6 +26,8 @@ enum Commands {
     Cli(Cli),
     #[command(subcommand, about = "Web commands", long_about = None)]
     Web(Web),
+    #[command(subcommand, about = "Import a dataset", long_about = None)]
+    Import(Import),
 }
 
 #[derive(Debug, Subcommand)]
@@ -84,10 +86,25 @@ enum Web {
     Start,
 }
 
+#[derive(Debug, Subcommand)]
+enum Import {
+    #[command(about = "Import a csv dataset", long_about = None)]
+    Csv {
+        #[arg(short, long)]
+        path: String,
+    },
+}
+
 pub async fn run(config: config::Config, db_pool: &sqlx::PgPool) -> Result<()> {
     let entry_point = EntryPoint::parse();
 
     match &entry_point.command {
+        Commands::Import(import) => match import {
+            Import::Csv { path } => {
+                info!("Importing dataset from {}", path);
+                super::import::csv(path, db_pool).await?;
+            }
+        },
         Commands::Utils(utils) => match utils {
             // Utils::Initialize => {}
             _ => unreachable!(),

@@ -34,8 +34,8 @@ export interface Expense {
 }
 
 export enum OrderBy {
-	Amount,
-	Date
+	Amount = "amount",
+	Date = "date",
 }
 
 export interface Filter {
@@ -43,9 +43,9 @@ export interface Filter {
 	category_ids: number[];
 	min_amount: number;
 	max_amount: number;
-	min_date: Date;
-	max_date: Date;
-	order_by: OrderBy;
+	min_date: string;
+	max_date: string;
+	order_by: string;
 	order_asc: boolean;
 }
 

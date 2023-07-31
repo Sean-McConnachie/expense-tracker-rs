@@ -97,10 +97,10 @@ pub async fn get_expenses(
         AND purchased_at <= $6
         ORDER BY {} {}
         "#,
-            if filter.order_by() == &OrderBy::Amount {
-                "amount"
-            } else {
-                "purchased_at"
+            match &filter.order_by() {
+                OrderBy::Amount => "amount",
+                OrderBy::Created => "created_at",
+                OrderBy::Date => "purchased_at",
             },
             if filter.order_asc() == true {
                 "ASC"

@@ -1,6 +1,3 @@
-use std::process::exit;
-use rocket::serde::json::serde_json::json;
-use datatypes::Expense;
 use expenses_backend::{utils, database};
 
 #[tokio::main]

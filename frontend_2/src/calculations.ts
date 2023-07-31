@@ -1,3 +1,4 @@
+import { round } from "lodash";
 import { DATA } from "./vars";
 
 interface WeightedEdges {
@@ -14,16 +15,23 @@ interface Owing {
 	amount: number;
 }
 
+interface Spent {
+	name: string;
+	amount: number;
+}
+
 interface ExpenseSummary {
 	total: number;
 	categories: string[];
 	user_map: Owing[];
+	totals_spent: Spent[];
 }
 
 export function calculateExpenses(): ExpenseSummary {
 	const expense_summary: ExpenseSummary = {
 		total: 0,
 		categories: [],
+		totals_spent: [],
 		user_map: [] // Add at the end
 	}
 	const user_map: AdjacencyList = {};
@@ -53,12 +61,23 @@ export function calculateExpenses(): ExpenseSummary {
 		var cb;
 		var expense;
 
+		const expense_cat_ids: number[] = [];
+		const totals_spent: WeightedEdges = [];
+		for (let u = 0; u < DATA.users.users.length; u++) {
+			totals_spent[DATA.users.users[u].id] = 0;
+		}
+
 		for (let i = 0; i < checkbox_elems.length; i++) {
 			cb = checkbox_elems[i] as HTMLInputElement;
 			if (cb.checked === true) {
 				expense = DATA.expenses.expenses[i];
 
+				if (!expense_cat_ids.includes(expense.category_id)) {
+					expense_cat_ids.push(expense.category_id);
+				}
+
 				expense_summary.total += expense.amount;
+				totals_spent[expense.user_id] += expense.amount;
 
 				var owe;
 				for (let u = 0; u < expense.user_owes.length; u++) {
@@ -69,6 +88,19 @@ export function calculateExpenses(): ExpenseSummary {
 					user_map[expense.user_id][owe.user_id] += owe.amount;
 				}
 			}
+		}
+
+		// Append literal strings for category names to expense_summary
+		for (let i = 0; i < expense_cat_ids.length; i++) {
+			expense_summary.categories.push(DATA.categories.getById(expense_cat_ids[i]).name);
+		}
+
+		// Append literal strings and amounts to expense_summary
+		for (const u in totals_spent) {
+			expense_summary.totals_spent.push({
+				name: DATA.users.getById(parseInt(u)).username,
+				amount: totals_spent[u]
+			})
 		}
 	}
 
@@ -96,7 +128,7 @@ export function calculateExpenses(): ExpenseSummary {
 	{
 		// Simplify the amounts using an algorithm
 		// Optimization level can be 1 if there exists a topological sort of user_map and the traversal is done in that order.
-		const optimization_level = 2;
+		const optimization_level = round(DATA.users.users.length / 2);
 		let amount;
 		for (let optimization_round = 0; optimization_round < optimization_level; optimization_round++) {
 			for (const u in user_map) {
@@ -109,7 +141,6 @@ export function calculateExpenses(): ExpenseSummary {
 						} else {
 							amount = user_map[v][w];
 						}
-						console.log(amount);
 
 						user_map[v][w] -= amount;
 						user_map[u][v] -= amount;
@@ -135,6 +166,5 @@ export function calculateExpenses(): ExpenseSummary {
 		}
 	}
 
-	console.log(expense_summary);
 	return expense_summary;
 }

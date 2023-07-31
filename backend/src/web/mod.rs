@@ -12,7 +12,7 @@ pub async fn run(config: config::Config, db_pool: sqlx::PgPool) {
     rocket::build()
         .mount(
             "/categories",
-            routes![categories_create, categories_all, categories_delete,],
+            routes![categories_create, categories_all, categories_delete],
         )
         .mount(
             "/expenses",

@@ -1,46 +1,224 @@
-/*[> Style the button to look like a dropdown button <]*/
-/*.dropbtn {*/
-  /*background-color: #4CAF50;*/
-  /*color: white;*/
-  /*padding: 12px;*/
-  /*font-size: 16px;*/
-  /*border: none;*/
-  /*cursor: pointer;*/
-/*}*/
+.filter-container {
+    position: relative;
+}
 
-/*[> Style the dropdown content (hidden by default) <]*/
-/*.dropdown-content {*/
-  /*display: none;*/
-  /*position: absolute;*/
-  /*background-color: #f9f9f9;*/
-  /*min-width: 160px;*/
-  /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
-/*}*/
+.filter-btn {
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    width: 32px;
+    height: 32px;
+    margin: 10px;
+    background: url(public/filter.svg);
+}
 
-/*[> Style the links inside the dropdown <]*/
-/*.dropdown-content a {*/
-  /*color: black;*/
-  /*padding: 12px 16px;*/
-  /*text-decoration: none;*/
-  /*display: block;*/
-/*}*/
+.filter-menu {
+    position: absolute;
+    /* top: calc(100% + 2px); */
+    right: 0;
+    z-index: 1;
+    width: 300px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
 
-/*[> Change the link color on hover <]*/
-/*.dropdown-content a:hover {*/
-  /*background-color: #f1f1f1;*/
-/*}*/
+.filter-container:hover .filter-menu {
+    display: block;
+}
 
-/*[> Show the dropdown menu on hover <]*/
-/*.dropdown:hover .dropdown-content {*/
-  /*display: block;*/
-/*}*/
+.filter-menu label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
 
+.filter-menu input[type="date"],
+.filter-menu select,
+.filter-menu input[type="number"]{
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    background-color: #f7f7f7;
+}
+
+
+/* style.css */
+.slider-container {
+    display: flex;
+    align-items: center;
+}
+
+.slider-container span {
+    margin: 0 10px;
+}
+
+.min-value {
+    margin-right: auto;
+}
+
+.filter-menu input[type=range] {
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.filter-menu input[type=range]:focus {
+    outline: none;
+}
+
+.filter-menu input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+.filter-menu input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #2196F3;
+    margin-top: -7px;
+    cursor: pointer;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+}
+
+.filter-menu input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+.filter-menu input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+.filter-menu input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #2196F3;
+    cursor: pointer;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+}
+
+.filter-menu input[type=range]::-ms-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.filter-menu input[type=range]::-ms-fill-lower {
+    background: #ddd;
+    border-radius: 10px;
+}
+
+.filter-menu input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 10px;
+}
+
+.filter-menu input[type=range]::-ms-thumb {
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #2196F3;
+    cursor: pointer;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+}
+
+.filter-menu input[type=range]:focus::-ms-fill-lower {
+    background: #ccc;
+}
+
+.filter-menu input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+
+.filter-menu input[type=range]::-moz-range-thumb:first-of-type {
+    margin-left: -15px;
+}
+
+.filter-menu input[type=range]::-moz-range-thumb:last-of-type {
+    margin-right: -15px;
+}
+
+.filter-menu input[type=range]::-webkit-slider-thumb:first-of-type {
+    margin-left: -15px;
+}
+
+.filter-menu input[type=range]::-webkit-slider-thumb:last-of-type {
+    margin-right: -15px;
+}
+
+.filter-menu input[type=range]::-ms-thumb:first-of-type {
+    margin-left: -15px;
+}
+
+.filter-menu input[type=range]::-ms-thumb:last-of-type {
+    margin-right: -15px;
+}
+
+
+.radio-group {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.radio-group label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-actions button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-actions button:hover {
+    background-color: #555;
+}
 
 /* ======================================================================================================= */
 
 .expense-details {
     display: block;
-    background-color: #f8f8f8;
+    background-color: #c8c8c8;
     padding: 10px;
 }
 
@@ -332,13 +510,6 @@ h1 {
 }
 
 
-/* .theme-switch-btn {
-    color: #fff !important;
-    background-color: #333;
-    border-radius: 5px;
-    padding: 5px;
-} */
-
 /* ======================================================================================================= */
 
 main {
@@ -355,7 +526,7 @@ main {
 }
 
 .expenses-left {
-    flex-basis: 70%;
+	flex: 1;
 }
 
 .expenses-left h2 {
