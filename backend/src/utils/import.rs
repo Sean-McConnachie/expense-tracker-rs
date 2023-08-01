@@ -31,7 +31,7 @@ fn get_category<'a>(category_name: &str, categories: &'a Vec<Category>) -> anyho
     return Err(anyhow::anyhow!("Category not found."));
 }
 
-pub async fn csv(path: &str, db_pool: &sqlx::PgPool) -> anyhow::Result<()> {
+pub async fn old_csv_format_import(db_pool: &sqlx::PgPool, path: &str) -> anyhow::Result<()> {
     let mut input = String::new();
     let fp = PathBuf::from(path);
     if !fp.exists() {

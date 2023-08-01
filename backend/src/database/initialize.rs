@@ -44,5 +44,13 @@ pub async fn initialize_db(db_pool: &sqlx::PgPool) -> Result<(), sqlx::Error> {
     "#;
     sqlx::query(sql).execute(db_pool).await?;
 
+    let sql = r#"
+    CREATE TABLE IF NOT EXISTS cleared_from (
+        id SERIAL PRIMARY KEY,
+        date TIMESTAMP NOT NULL DEFAULT NOW()
+    );
+    "#;
+    sqlx::query(sql).execute(db_pool).await?;
+
     Ok(())
 }

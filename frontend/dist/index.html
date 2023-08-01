@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Getting Started</title>
+  </head>
+  <body>
+	<script src="https://unpkg.com/mustache@latest"></script>
+	<script src="bundle.js"></script>
+	<link rel="stylesheet" href="style.css">
+
+	<main>
+		<div
+			id="login-msg-target"
+			class="overlay hidden"
+			onclick="document.getElementById('login-msg-target').classList.toggle('hidden')">
+			Please login!
+		</div>
+
+		<!-- ID PREFIX: `add-expense` -->
+		<div id="add-expense-target"></div>
+		<script id="add-expense-template" type="x-tmpl-mustache">
+			<div class="overlay">
+        		<div class="popup popup-show">
+        	    	<span
+						class="popup-close"
+						onclick="document.getElementById('add-expense-target').innerHTML = ``">X</span>
+        	    	<div class="popup-header">
+        	        	<h2 style="text-align: center;">Add Expense</h2>
+						Currently logged in as <b>{{current_user}}</b>.
+
+        	    	</div>
+					
+					<h4 id="expense-error" class="popup-error"></h4>
+
+					<div class="popup-flex-div">
+						<div style="flex: 1;">
+			                <label for="category">Category</label>
+			                <select
+								id="category"
+								name="category"
+								style="width: 100%;">
+			                    
+								<option selected=true disabled=true hidden=true value="">Select Category</option>
+								{{#categories}}
+								<option value={{@index}}>{{name}}</option>
+								{{/categories}}
+			                </select>
+
+							<label for="description">Description</label>
+			                <textarea
+								id="description"
+								name="description"
+								style="width: 100%;"></textarea>
+
+							<label for="date">Date</label>
+							<input
+								type="date"
+								value={{current_date}}
+								id="date"
+								name="date"
+								style="width: 100%; margin: 0px 0px 20px; padding: 10px;">
+							</input>
+			            </div>
+
+			            <div style="flex: 1;">
+							<!-- Amounts table -->
+							<table>
+  							  	<tr>
+  							    	<th></th>
+  							    	<th>Person</th>
+  							    	<th>Share</th>
+  							  	</tr>
+								
+								{{#users}}
+								<tr>
+									<td><input checked=true type="checkbox" class="user-checked"></td>
+									<td>{{username}}</td>
+                        	      	<td>
+										<input
+											type="number"
+											step="0.01"
+											class="user-amount number-input"
+											value="0.00"
+											uid={{@index}}></td>
+								</tr>
+								{{/users}}
+
+								<tr class="sum-row">
+								  <td colspan="2">Total</td>
+								  <td>
+								  	<input
+								  		type="number"
+										step="0.01"
+										class="number-input"
+										value="0.00"
+										id="total"></td>
+								</tr>
+  							</table>
+						<!-- / Ammounts table -->
+			            </div>
+			        </div>
+			        <div class="popup-footer">
+			            <button type="submit" id="submit-expense" class="submit-button">Submit</button>
+					</div>
+				</div>
+			</div>
+		</script>
+		<!-- END: `add-expense` -->
+		
+		<header>
+            <div class="header-left">
+				<!-- ID PREFIX: `user-dd` -->
+				<div id="user-dd-target">Loading...</div>
+				<script id="user-dd-template" type="x-tmpl-mustache">
+					<select id="user-dd-select" class="user-dropdown">
+                	    <option selected=true disabled=true hidden=true value="">Select user</option>
+						{{#users}}
+						<option value={{@index}}>{{username}}</option>
+						{{/users}}
+                	</select>
+				</script>
+				<!-- END: `user-dd` -->
+
+                <button id="add-expense" class="add-expense-btn btn"><i class="fas fa-plus"></i></button>
+            </div>
+            <div class="header-center">
+                <h1>Expense Tracker</h1>
+            </div>
+            <div class="header-right">
+                <button class="settings-btn btn"><i class="fas fa-cog"></i></button>
+                <div class="settings-menu">
+                    <ul>
+                        <li><a href="#">Edit users</a></li>
+						<li><a href="#">Edit categories</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+		<section>
+			<div class="expenses-section">
+				<div class="expenses-left">
+					<div class="expense-header">
+						<h2 style=padding-right: 50px;>Expenses</h2>
+						<div class="popup-error" id="filter-err"></div>
+						<!-- ID PREFIX: `filter` -->
+						<div id="filter-target"></div>
+						<script id="filter-template" type="x-tmpl-mustache">
+						<div class="filter-container">
+                            <button class="filter-btn btn"><i class="fas fa-filter"></i></button>
+                            <div class="filter-menu">
+								<!-- FROM DATE -->
+                                <label for="from-date">From Date</label>
+								<input type="date" id="filter-from-date" name="from-date" value={{last_reset}} />
+
+								<!-- TO DATE -->
+                                <label for="to-date">To Date</label>
+								<input type="date" id="filter-to-date" name="to-date" value={{todays_date}} />
+
+								<!-- PURCHASED BY -->
+								<label for="purchased-by">Purchased By</label>
+								<select id="filter-purchased-by" name="purchased-by">
+									<option value="" selected=true>All</option>
+									{{#each users}} 
+									<option value="{{@index}}">{{username}}</option>
+									{{/each}}
+								</select>
+
+								<!-- CATEGORY -->
+								<label for="category">Category</label>
+								<select id="filter-category" name="category">
+									<option value="" selected=true>All</option>
+									{{#each categories}}
+									<option value="{{@index}}">{{name}}</option>
+									{{/each}}
+								</select>
+
+								<!-- MINIMUM AMOUNT -->
+                                <label for="amount-slider">Minimum Amount:</label>
+								<input id="filter-min-amount" name="amount-slider"
+									type="number" step="0.01" value="-100000.00"></input>
+
+								<!-- MAXIMUM AMOUNT -->
+                                <label for="amount-slider">Maximum amount:</label>
+								<input id="filter-max-amount" name="amount-slider"
+									type="number" step="0.01" value="1000000.00" style=></input>
+
+								<!-- ORDER BY -->
+                                <div class="radio-group">
+                                    <label for="order-by">Order By:</label>
+
+                                    <input id="filter-order-date" checked=true type="radio" name="order-by" value="date" />
+                                    <label for="order-by-date">Date</label>
+
+                                    <input id="filter-order-amount" type="radio" name="order-by" value="amount" />
+                                    <label for="order-by-amount">Amount</label>
+
+                                    <input id="filter-order-created" type="radio" name="order-by" value="created" />
+                                    <label for="order-by-created">Created</label>
+                                </div>
+
+								<!-- ORDER -->
+                                <div class="radio-group">
+                                    <label for="order">Order:</label>
+
+                                    <input id="filter-order-desc" checked=true type="radio" name="order" value="desc" />
+                                    <label for="order-desc">Descending</label>
+
+                                    <input id="filter-order-asc" type="radio" name="order" value="asc" />
+                                    <label for="order-asc">Ascending</label>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button id="filter-apply">Apply Filter</button>
+                                    <button id="filter-clear">Clear Filter</button>
+                                </div>
+                            </div>
+                        </div>
+						</script>
+						<!-- End filter -->
+					</div>
+					<!-- ID PREFIX: `expense` -->
+					<div id="expense-target">Loading...</div>
+					<script id="expense-template" type="x-tmpl-mustache">
+						<ul class="expenses-list">
+							{{#entries}}
+							<li>
+								<input value={{@index}} type="checkbox" class="expense-checkbox" checked={{checked}} />
+								<div class="expense-row"
+									onclick="document.getElementById('detail-{{@index}}').classList.toggle('hidden')">
+									<div class="expense-amount">${{rnd2DP amount}}</div>
+									<div class="expense-date">{{pretty_date}}</div>
+									<div class="expense-category">{{category_name}}</div>
+									<div class="expense-user">{{username}}</div>
+									<!--<div class="expense-communal">{{is_communal}}</div>-->
+									<div class="expense-users">{{num_users}}</div>
+    				    		</div>
+
+								<div class="expense-details hidden" id="detail-{{@index}}">
+									<div class="expense-description"><p>{{description}}</p></div>
+            					    <table class="expense-users-table">
+            					        <thead>
+            					            <tr>
+												<th><b>Name</b></th>
+            					                <th><b>Amount</b></th>
+            					                <th><b>Share (%)</b></th>
+            					            </tr>
+            					        </thead>
+            					        <tbody>
+											{{#user_owes}}
+											<tr>
+												<td>{{name}}</td>
+												<td>{{rnd2DP amount}}</td>
+												<td>{{rnd2DP perc}}</td>
+                							</tr>
+											{{/user_owes}}
+            					        </tbody>
+            					    </table>
+            					</div>
+    				    	</li>
+							{{/entries}}
+						</ul>
+					</script>
+					<!-- END: `expense` -->
+				</div>
+				
+				<!-- Expenses summary -->
+				<div id="expense-summary-target"></div>
+				<script id="expense-summary-template" type="x-tmpl-mustache">
+				<div class="expenses-right">
+					<div class="expenses-summary">
+            		    <h2>Total</h2>
+						<div class="expenses-total">${{rnd2DP total}}</div>
+            		</div>
+
+            		<div class="expenses-summary">
+						{{#totals_spent}}
+						<div>
+						<b>{{name}}</b> spent <b>${{rnd2DP amount}}</b>
+						</div>
+						{{/totals_spent}}
+					</div>
+
+            		<div class="expenses-summary">
+						{{#user_map}}
+						<div>
+						<b>{{user_who_pays}}</b> owes <i>{{user_who_receives}}</i> <b>${{rnd2DP amount}}</b>
+						</div>
+						{{/user_map}}
+					</div>
+            		<div class="expenses-summary">
+            		    <h2>Categories</h2>
+            		    <ul class="expenses-categories">
+							{{#categories}}
+							<li>- {{this}}</li>
+							{{/categories}}
+            		    </ul>
+            		</div>
+				</div>
+				</script>
+				<!-- Expenses summary ending -->
+			</div>
+
+
+		<!--<div id="edit-target"></div>-->
+		<!--<script id="edit-template" type="x-tmpl-mustache">-->
+			<!--<div class="overlay">-->
+                <!--<div class="popup popup-show">-->
+                    <!--<span-->
+						<!--class="popup-close"-->
+						<!--onclick="document.getElementById('add-expense-target').innerHTML = ``">X</span>-->
+                    <!--<div class="popup-header">-->
+                        <!--<h2 style="text-align: center;">Add Expense</h2>-->
+						<!--Currently logged in as <b>{{current_user}}</b>.-->
+
+                    <!--</div>-->
+					
+					<!--<h4 id="expense-error" class="popup-error"></h4>-->
+
+					<!--<div class="popup-flex-div">-->
+					<!--</div>-->
+					<!--<div class="popup-footer">-->
+						<!--<button type="submit" id="submit-expense" class="submit-button">Submit</button>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</script>-->
+		<!-- END: `add-expense` -->
+
+		</section>
+	</main>
+  </body>
+</html>
+

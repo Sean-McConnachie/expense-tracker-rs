@@ -1,3 +1,4 @@
+use std::fmt::{Display, Formatter};
 use serde::{Serialize, Deserialize};
 use sqlx::Row;
 use chrono::NaiveDateTime;
@@ -47,5 +48,11 @@ impl From<sqlx::postgres::PgRow> for Category {
             description: row.get("description"),
             created_at: row.get("created_at"),
         }
+    }
+}
+
+impl Display for Category {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}: {} ({}) [{}]", self.id, self.name, self.created_at, self.description)
     }
 }

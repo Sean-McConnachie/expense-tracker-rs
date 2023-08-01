@@ -1,3 +1,4 @@
+use std::fmt::Display;
 use sqlx::Row;
 
 #[derive(serde::Serialize, serde::Deserialize, Debug, Clone, PartialEq, Eq)]
@@ -39,3 +40,9 @@ impl From<sqlx::postgres::PgRow> for User {
     }
 }
 
+impl Display for User {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let created_at = self.created_at().format("%Y-%m-%d %H:%M:%S");
+        write!(f, "{}: {} ({})", self.id(), self.username(), created_at)
+    }
+}

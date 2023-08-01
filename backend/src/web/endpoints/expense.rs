@@ -10,13 +10,13 @@ pub async fn expenses_create(
     db_pool: &State<sqlx::PgPool>,
     expense: Json<Expense>,
 ) -> Result<Json<Expense>, std::io::Error> {
-    // let expense = expense::insert_expense(db_pool, expense.0)
-    //     .await
-    //     .map_err(|_e| std::io::Error::new(std::io::ErrorKind::Other, "Failed to create expense"))?;
-
     let expense = expense::insert_expense(db_pool, expense.0)
         .await
-        .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, format!("Failed to create expense: {}", e.to_string())))?;
+        .map_err(|_e| std::io::Error::new(std::io::ErrorKind::Other, "Failed to create expense"))?;
+
+    // let expense = expense::insert_expense(db_pool, expense.0)
+    //     .await
+    //     .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, format!("Failed to create expense: {}", e.to_string())))?;
 
     Ok(Json(expense))
 }
@@ -42,4 +42,15 @@ pub async fn expenses_filter(
         .map_err(|_e| std::io::Error::new(std::io::ErrorKind::Other, "Failed to delete user"))?;
 
     Ok(Json(expenses))
+}
+
+#[get("/last-reset")]
+pub async fn expenses_last_reset(
+    db_pool: &State<sqlx::PgPool>,
+) -> Result<Json<chrono::NaiveDateTime>, std::io::Error> {
+    let date = expense::get_last_reset(db_pool)
+        .await
+        .map_err(|_e| std::io::Error::new(std::io::ErrorKind::Other, "Failed to get last reset"))?;
+
+    Ok(Json(date))
 }

@@ -1,4 +1,35 @@
+use sqlx::Row;
 use datatypes::{Expense, UserOwes, Filter, OrderBy};
+
+
+pub async fn insert_last_reset(db_pool: &sqlx::PgPool) -> Result<(), sqlx::Error> {
+    let sql = r#"
+    INSERT INTO cleared_from DEFAULT VALUES;
+    "#;
+
+    sqlx::query(sql)
+        .execute(db_pool)
+        .await?;
+
+    Ok(())
+}
+
+pub async fn get_last_reset(db_pool: &sqlx::PgPool) -> Result<chrono::NaiveDateTime, sqlx::Error>  {
+    let sql = r#"
+    SELECT date
+    FROM cleared_from
+    ORDER BY date DESC
+    LIMIT 1
+    "#;
+
+    let row = sqlx::query(sql)
+        .fetch_one(db_pool)
+        .await?;
+
+    let last_reset = row.get::<chrono::NaiveDateTime, _>("date");
+
+    Ok(last_reset)
+}
 
 pub async fn insert_expense(
     db_pool: &sqlx::PgPool,
@@ -130,6 +161,7 @@ pub async fn get_expenses(
     }
     return Ok(expenses);
 }
+
 
 #[cfg(test)]
 mod test {

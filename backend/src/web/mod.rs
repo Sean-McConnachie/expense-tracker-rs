@@ -16,7 +16,7 @@ pub async fn run(config: config::Config, db_pool: sqlx::PgPool) {
         )
         .mount(
             "/expenses",
-            routes![expenses_create, expenses_all, expenses_filter,],
+            routes![expenses_create, expenses_all, expenses_filter, expenses_last_reset]
         )
         .mount("/users", routes![users_create, users_all, users_delete])
         .attach(CORS)
